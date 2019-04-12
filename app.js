@@ -11,7 +11,7 @@ var usersRouter = require('./routes/users');
 var coolusersRouter = require('./routes/cool');
 var catalogRouter = require('./routes/catalog');  //Import routes for "catalog" area of site
 var app = express();
-app.use(helmet());
+
 //Set up mongoose connection
 var mongoose = require('mongoose');
 var dev_db_url = 'mongodb+srv://dbAdmin:dbAdminPass@cluster0-6b2jm.mongodb.net/local_library?retryWrites=true';
@@ -31,7 +31,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(compression()); //Compress all routes
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(helmet());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/users/cool', coolusersRouter);
