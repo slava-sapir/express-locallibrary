@@ -10,12 +10,16 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var coolusersRouter = require('./routes/cool');
 var catalogRouter = require('./routes/catalog');  //Import routes for "catalog" area of site
+var cfenv = require('cfenv');
 var app = express();
+// Set up CF environment variables
+var appEnv = cfenv.getAppEnv();
 
 //Set up mongoose connection
 var mongoose = require('mongoose');
 var dev_db_url = 'mongodb+srv://dbAdmin:dbAdminPass@cluster0-6b2jm.mongodb.net/local_library?retryWrites=true';
-var mongoDB = process.env.MONGODB_URI || dev_db_url;
+//var mongoDB = process.env.MONGODB_URI || dev_db_url;
+var mongoDB = appEnv.getServiceURL('node-express-tutorial-mongodb') || dev_db_url;
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
