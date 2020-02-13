@@ -7,8 +7,6 @@ var compression = require('compression');
 var helmet = require('helmet');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var coolusersRouter = require('./routes/cool');
 var catalogRouter = require('./routes/catalog');  //Import routes for "catalog" area of site
 var cfenv = require('cfenv');
 var app = express();
@@ -37,8 +35,6 @@ app.use(compression()); //Compress all routes
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(helmet());
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/users/cool', coolusersRouter);
 app.use('/catalog', catalogRouter);  // Add catalog routes to middleware chain.
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
