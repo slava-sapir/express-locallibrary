@@ -12,7 +12,7 @@
     "async": "^2.6.3",
     "cfenv": "^1.2.2",
     "compression": "^1.7.4",
-    "cookie-parser": "~1.4.3",
+    "cookie-parser": "^1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "express-validator": "^5.3.1",
