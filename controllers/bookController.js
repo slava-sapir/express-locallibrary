@@ -1,4 +1,4 @@
-var Book = require('../models/book');
+var Book = require('../models/Book');
 var Author = require('../models/author');
 var Genre = require('../models/genre');
 var BookInstance = require('../models/bookinstance');
@@ -74,7 +74,7 @@ exports.book_detail = function(req, res, next) {
 // Display book create form on GET.
 exports.book_create_get = function(req, res, next) { 
       
-    // Get all authors and genres, which we can use for adding to our book.
+// Get all authors and genres, which we can use for adding to our book.
     async.parallel({
         authors: function(callback) {
             Author.find(callback);
