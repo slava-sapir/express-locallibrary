@@ -1,7 +1,7 @@
 const { body,validationResult } = require('express-validator/check');
 const { sanitizeBody } = require('express-validator/filter');
-var Genre = require('../models/genre');
-var Book = require('../models/book');
+var Genre = require('../models/Genre');
+var Book = require('../models/Book');
 var async = require('async');
 var mongoose = require('mongoose');
 
